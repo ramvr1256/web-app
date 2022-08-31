@@ -35,6 +35,8 @@ import { NotificationsModule } from './notifications/notifications.module';
 import { CollectionsModule } from './collections/collections.module';
 import { ProfileModule } from './profile/profile.module';
 import { TasksModule } from './tasks/tasks.module';
+import { ConfigurationWizardModule } from './configuration-wizard/configuration-wizard.module';
+
 
 /** Main Routing Module */
 import { AppRoutingModule } from './app-routing.module';
@@ -82,6 +84,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     SearchModule,
     CollectionsModule,
     TasksModule,
+    ConfigurationWizardModule,
     AppRoutingModule,
   ],
   declarations: [WebAppComponent, NotFoundComponent],
