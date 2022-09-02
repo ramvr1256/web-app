@@ -184,7 +184,7 @@ export class SystemComponent implements OnInit, AfterViewInit {
   nextStepConfigurations() {
     this.configurationWizardService.showConfigurations = false;
     this.configurationWizardService.showConfigurationsPage = true;
-    this.router.navigate(['/system/global-configurations']);
+    this.router.navigate(['/system/configurations']);
   }
 
   /**

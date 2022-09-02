@@ -36,7 +36,7 @@ import { CollectionsModule } from './collections/collections.module';
 import { ProfileModule } from './profile/profile.module';
 import { TasksModule } from './tasks/tasks.module';
 import { ConfigurationWizardModule } from './configuration-wizard/configuration-wizard.module';
-
+import {PortalModule} from '@angular/cdk/portal';
 
 /** Main Routing Module */
 import { AppRoutingModule } from './app-routing.module';
@@ -63,6 +63,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    PortalModule,
     CoreModule,
     HomeModule,
     LoginModule,

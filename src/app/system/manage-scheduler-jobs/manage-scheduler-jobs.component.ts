@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 /** rxjs Imports */
 import { of } from 'rxjs';
@@ -49,11 +49,11 @@ export class ManageSchedulerJobsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   /* Reference of scheduler status */
-  @ViewChild('schedulerStatus') schedulerStatus: ElementRef<any>;
+  @ViewChild('schedulerStatus', { static: true }) schedulerStatus: ElementRef<any>;
   /* Template for popover on scheduler status */
-  @ViewChild('templateSchedulerStatus') templateSchedulerStatus: TemplateRef<any>;
+  @ViewChild('templateSchedulerStatus', { static: true }) templateSchedulerStatus: TemplateRef<any>;
   /* Reference of jobs table */
-  @ViewChild('jobsTable') jobsTable: ElementRef<any>;
+  @ViewChild('jobsTable', { static: true }) jobsTable: ElementRef<any>;
   /* Template for popover on jobs table */
   @ViewChild('templateJobsTable') templateJobsTable: TemplateRef<any>;
 

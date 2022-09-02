@@ -1,6 +1,6 @@
 /* Angular Imports */
 import { ComponentType, Overlay, OriginConnectionPosition, OverlayConnectionPosition, ConnectionPositionPair } from '@angular/cdk/overlay';
-import { ComponentPortal, PortalInjector, TemplatePortal } from '@angular/cdk/portal';
+import { ComponentPortal, TemplatePortal } from '@angular/cdk/portal';
 import { Injectable, InjectionToken, Injector, TemplateRef, ElementRef } from '@angular/core';
 
 /* Custom Imports */
@@ -170,12 +170,18 @@ export class PopoverService {
     const popover = overlayRef.attach(new ComponentPortal(
       PopoverComponent,
       null,
-      new PortalInjector(
-        this.injector,
-        new WeakMap<any, any>([
-          [PopoverRef, popoverRef]
-        ])
-      )
+      Injector.create({
+        parent: this.injector,
+        providers: [
+          { provide: PopoverRef, useValue: popoverRef }
+        ]
+      })
+      // new PortalInjector(
+      //   this.injector,
+      //   new WeakMap<any, any>([
+      //     [PopoverRef, popoverRef]
+      //   ])
+      // )
     )).instance;
 
     if (componentOrTemplate instanceof TemplateRef) {
@@ -196,13 +202,20 @@ export class PopoverService {
         new ComponentPortal(
           componentOrTemplate,
           null,
-          new PortalInjector(
-            this.injector,
-            new WeakMap<any, any>([
-              [POPOVER_DATA, config.data],
-              [PopoverRef, popoverRef]
-            ])
-          )
+          Injector.create({
+            parent: this.injector,
+            providers: [
+              { provide: POPOVER_DATA, useValue: config.data },
+              { provide: PopoverRef, useValue: popoverRef },
+            ]
+          })
+          // new PortalInjector(
+          //   this.injector,
+          //   new WeakMap<any, any>([
+          //     [POPOVER_DATA, config.data],
+          //     [PopoverRef, popoverRef]
+          //   ])
+          // )
         )
       );
 

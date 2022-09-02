@@ -2,6 +2,7 @@
 import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal } from '@angular/cdk/portal';
 import { Component, ComponentRef, EmbeddedViewRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { PortalModule } from '@angular/cdk/portal';
 
 /** rxjs Imports */
 import { Subscription } from 'rxjs';
@@ -19,9 +20,10 @@ import { PopoverRef } from './popover-ref';
   styleUrls: ['./popover.component.scss']
 })
 export class PopoverComponent extends BasePortalOutlet {
-  @ViewChild(CdkPortalOutlet) portalOutlet: CdkPortalOutlet;
+  @ViewChild(CdkPortalOutlet, { static: true }) portalOutlet: CdkPortalOutlet;
 
   attachComponentPortal<T>(componentPortal: ComponentPortal<any>): ComponentRef<T> {
+    console.log(this.portalOutlet.attachComponentPortal(componentPortal));
     return this.portalOutlet.attachComponentPortal(componentPortal);
   }
 

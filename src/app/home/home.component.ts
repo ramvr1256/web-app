@@ -2,7 +2,7 @@
 import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 /** rxjs Imports */
 import { Observable } from 'rxjs';
@@ -41,13 +41,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   allActivities: any[] = activities;
 
   /* Reference of dashboard button */
-  @ViewChild('buttonDashboard') buttonDashboard: ElementRef<any>;
+  @ViewChild('buttonDashboard', {static: false}) buttonDashboard: ElementRef<any>;
   /* Template for popover on dashboard button */
-  @ViewChild('templateButtonDashboard') templateButtonDashboard: TemplateRef<any>;
+  @ViewChild('templateButtonDashboard', {static: false}) templateButtonDashboard: TemplateRef<any>;
   /* Reference of search activity */
-  @ViewChild('searchActivity') searchActivity: ElementRef<any>;
+  @ViewChild('searchActivity', {static: false}) searchActivity: ElementRef<any>;
   /* Template for popover on search activity */
-  @ViewChild('templateSearchActivity') templateSearchActivity: TemplateRef<any>;
+  @ViewChild('templateSearchActivity', {static: false}) templateSearchActivity: TemplateRef<any>;
 
   /**
    * @param {AuthenticationService} authenticationService Authentication Service.

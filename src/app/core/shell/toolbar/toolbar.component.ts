@@ -1,10 +1,9 @@
 /** Angular Imports */
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild, AfterViewInit, ElementRef, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
 
 /** rxjs Imports */
 import { Observable } from 'rxjs';
@@ -162,6 +161,9 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
         this.configurationWizardService.showManageFunds = true;
         this.router.navigate(['/organization']);
       }
+      if (response.show === 0) {
+
+      }
     });
   }
 
@@ -184,5 +186,5 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
         this.showPopover(this.templateAppMenu, this.appMenu.nativeElement);
       });
     }
-
+  }
 }

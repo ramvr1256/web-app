@@ -57,7 +57,6 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   constructor(private router: Router,
               public dialog: MatDialog,
               private authenticationService: AuthenticationService,
-              private authenticationService: AuthenticationService,
               private configurationWizardService: ConfigurationWizardService,
               private popoverService: PopoverService) {
     this.userActivity = JSON.parse(localStorage.getItem('mifosXLocation'));
