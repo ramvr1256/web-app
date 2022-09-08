@@ -8,6 +8,7 @@ import { CollectionsRoutingModule } from './collections-routing.module';
 
 /** Custom Components */
 import { IndividualCollectionSheetComponent } from './individual-collection-sheet/individual-collection-sheet.component';
+import { CollectionSheetComponent } from './collection-sheet/collection-sheet.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { IndividualCollectionSheetComponent } from './individual-collection-shee
     CollectionsRoutingModule
   ],
   declarations: [
-    IndividualCollectionSheetComponent
+    IndividualCollectionSheetComponent,
+    CollectionSheetComponent
   ]
 })
 export class CollectionsModule { }

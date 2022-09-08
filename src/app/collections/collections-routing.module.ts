@@ -12,6 +12,7 @@ import { IndividualCollectionSheetComponent } from './individual-collection-shee
 
 /** Custom Resolvers */
 import { GetOfficesResolver } from './individual-collection-sheet/get-offices.resolver';
+import { CollectionSheetComponent } from './collection-sheet/collection-sheet.component';
 
 const routes: Routes = [
   Route.withShell([
@@ -22,6 +23,14 @@ const routes: Routes = [
           path: 'individual-collection-sheet',
           data: { title: extract('Individual Collection Sheet'), breadcrumb: 'Individual Collection Sheet', routeParamBreadcrumb: false },
           component: IndividualCollectionSheetComponent,
+          resolve: {
+            officesData: GetOfficesResolver
+          }
+        },
+        {
+          path: 'enter-collection-sheet',
+          data: { title: extract('Collection Sheet'), breadcrumb: 'Collection Sheet', routeParamBreadcrumb: false },
+          component: CollectionSheetComponent,
           resolve: {
             officesData: GetOfficesResolver
           }
